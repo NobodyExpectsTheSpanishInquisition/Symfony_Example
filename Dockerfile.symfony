@@ -1,6 +1,9 @@
 ARG PHP_IMAGE_TAG
 FROM php:${PHP_IMAGE_TAG}
 
+RUN apt-get update
+RUN apt-get --assume-yes install git
+RUN apt-get --assume-yes install zip unzip
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
 WORKDIR /var/html/api
