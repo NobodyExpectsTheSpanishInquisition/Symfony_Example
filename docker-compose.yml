@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  symfony:
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: Dockerfile.symfony
+      args:
+        - PHP_IMAGE_TAG=${PHP_IMAGE_TAG}
+    container_name: ${SYMFONY_APP_CONTAINER_NAME}
+    volumes:
+      - ${SYMFONY_APP_SOURCE_VOLUME}:${SYMFONY_APP_TARGET_VOLUME}:${SYMFONY_APP_VOLUME_MODE}

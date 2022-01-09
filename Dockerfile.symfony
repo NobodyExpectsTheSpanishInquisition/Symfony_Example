@@ -1,0 +1,6 @@
+ARG PHP_IMAGE_TAG
+FROM php:${PHP_IMAGE_TAG}
+
+COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+
+WORKDIR /var/html/api
