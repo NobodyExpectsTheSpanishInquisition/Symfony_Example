@@ -24,3 +24,11 @@ services:
         - POSTGRES_USER=${POSTGRES_USER}
         - POSTGRES_DB=${POSTGRES_DB}
     container_name: ${POSTGRES_CONTAINER_NAME}
+  nginx:
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx
+      args:
+        - NGINX_IMAGE_TAG=${NGINX_IMAGE_TAG}
