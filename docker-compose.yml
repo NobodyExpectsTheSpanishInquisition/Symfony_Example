@@ -1,17 +1,6 @@
 version: '3.8'
 
 services:
-  symfony:
-    env_file:
-      - .env
-    build:
-      context: .
-      dockerfile: Dockerfile.symfony
-      args:
-        - PHP_IMAGE_TAG=${PHP_IMAGE_TAG}
-    container_name: ${SYMFONY_APP_CONTAINER_NAME}
-    volumes:
-      - ${SYMFONY_APP_SOURCE_VOLUME}:${SYMFONY_APP_TARGET_VOLUME}:${SYMFONY_APP_VOLUME_MODE}
   db:
     env_file:
       - .env
@@ -24,6 +13,23 @@ services:
         - POSTGRES_USER=${POSTGRES_USER}
         - POSTGRES_DB=${POSTGRES_DB}
     container_name: ${POSTGRES_CONTAINER_NAME}
+    ports:
+      - ${POSTGRES_INTERNAL_PORT}:${POSTGRES_EXTERNAL_PORT}
+
+  symfony:
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: Dockerfile.symfony
+      args:
+        - PHP_IMAGE_TAG=${PHP_IMAGE_TAG}
+    container_name: ${SYMFONY_APP_CONTAINER_NAME}
+    volumes:
+      - ${SYMFONY_APP_SOURCE_VOLUME}:${SYMFONY_APP_TARGET_VOLUME}:${SYMFONY_APP_VOLUME_MODE}
+    depends_on:
+      - db
+
   nginx:
     env_file:
       - .env
@@ -32,3 +38,11 @@ services:
       dockerfile: Dockerfile.nginx
       args:
         - NGINX_IMAGE_TAG=${NGINX_IMAGE_TAG}
+    ports:
+      - ${NGINX_SYMFONY_APP_EXTERNAL_PORT}:${NGINX_SYMFONY_APP_INTERNAL_PORT}
+    depends_on:
+      - symfony
+    volumes:
+      - ./default.conf:/etc/nginx/conf.d/default.conf
+      - ${SYMFONY_APP_SOURCE_VOLUME}:${NGINX_SYMFONY_APP_TARGET_VOLUME_PATH}:${NGINX_SYMFONY_APP_VOLUME_MODE}
+    container_name: ${NGINX_CONTAINER_NAME}
