@@ -1,0 +1,17 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Property App\\\\Auth\\\\Shared\\\\Infrastructure\\\\Entity\\\\User\\:\\:\\$id is never read, only written\\.$#"
+			count: 1
+			path: src/Auth/Shared/Infrastructure/Entity/User.php
+
+		-
+			message: "#^Property App\\\\Auth\\\\Shared\\\\Infrastructure\\\\Entity\\\\User\\:\\:\\$login is never read, only written\\.$#"
+			count: 1
+			path: src/Auth/Shared/Infrastructure/Entity/User.php
+
+		-
+			message: "#^Property App\\\\Auth\\\\Shared\\\\Infrastructure\\\\Entity\\\\User\\:\\:\\$passwordHash is never read, only written\\.$#"
+			count: 1
+			path: src/Auth/Shared/Infrastructure/Entity/User.php
+
