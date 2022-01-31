@@ -1,0 +1,15 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  App\Auth\Shared\Infrastructure\Doctrine\AuthEntityManager:
+    factory: [ '@App\Shared\Infrastructure\Doctrine\EntityManagerFactory', 'createAuthEntityManager' ]
+
+  App\Auth\Shared\Application\Orm\AuthEntityManagerInterface: '@App\Auth\Shared\Infrastructure\Doctrine\AuthEntityManager'
+
+  App\Auth\:
+    resource: './../../../'
+
+  App\Auth\RegisterUser\Application\RegisterUserHandler:
+    public: true

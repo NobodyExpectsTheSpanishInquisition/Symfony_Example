@@ -15,3 +15,53 @@ parameters:
 			count: 1
 			path: src/Auth/Shared/Infrastructure/Entity/User.php
 
+		-
+			message: "#^Method App\\\\Kernel\\:\\:configureContainer\\(\\) is unused\\.$#"
+			count: 1
+			path: src/Kernel.php
+
+		-
+			message: "#^Cannot call method beginTransaction\\(\\) on object\\|null\\.$#"
+			count: 1
+			path: tests/Auth/RegisterUser/Application/RegisterUserHandlerTest.php
+
+		-
+			message: "#^Class App\\\\Tests\\\\Auth\\\\RegisterUser\\\\Application\\\\RegisterUserHandlerTest has an uninitialized property \\$assertions\\. Give it default value or assign it in the constructor\\.$#"
+			count: 1
+			path: tests/Auth/RegisterUser/Application/RegisterUserHandlerTest.php
+
+		-
+			message: "#^Class App\\\\Tests\\\\Auth\\\\RegisterUser\\\\Application\\\\RegisterUserHandlerTest has an uninitialized property \\$entityManager\\. Give it default value or assign it in the constructor\\.$#"
+			count: 1
+			path: tests/Auth/RegisterUser/Application/RegisterUserHandlerTest.php
+
+		-
+			message: "#^Class App\\\\Tests\\\\Auth\\\\RegisterUser\\\\Application\\\\RegisterUserHandlerTest has an uninitialized property \\$handler\\. Give it default value or assign it in the constructor\\.$#"
+			count: 1
+			path: tests/Auth/RegisterUser/Application/RegisterUserHandlerTest.php
+
+		-
+			message: "#^Class App\\\\Tests\\\\Auth\\\\RegisterUser\\\\Application\\\\RegisterUserHandlerTest has an uninitialized property \\$testData\\. Give it default value or assign it in the constructor\\.$#"
+			count: 1
+			path: tests/Auth/RegisterUser/Application/RegisterUserHandlerTest.php
+
+		-
+			message: "#^Property App\\\\Tests\\\\Auth\\\\RegisterUser\\\\Application\\\\RegisterUserHandlerTest\\:\\:\\$assertions \\(App\\\\Tests\\\\Auth\\\\RegisterUser\\\\Application\\\\RegisterUserHandlerTestAssertions\\) does not accept object\\|null\\.$#"
+			count: 1
+			path: tests/Auth/RegisterUser/Application/RegisterUserHandlerTest.php
+
+		-
+			message: "#^Property App\\\\Tests\\\\Auth\\\\RegisterUser\\\\Application\\\\RegisterUserHandlerTest\\:\\:\\$entityManager \\(App\\\\Auth\\\\Shared\\\\Infrastructure\\\\Doctrine\\\\AuthEntityManager\\) does not accept object\\|null\\.$#"
+			count: 1
+			path: tests/Auth/RegisterUser/Application/RegisterUserHandlerTest.php
+
+		-
+			message: "#^Property App\\\\Tests\\\\Auth\\\\RegisterUser\\\\Application\\\\RegisterUserHandlerTest\\:\\:\\$handler \\(App\\\\Auth\\\\RegisterUser\\\\Application\\\\RegisterUserHandler\\) does not accept object\\|null\\.$#"
+			count: 1
+			path: tests/Auth/RegisterUser/Application/RegisterUserHandlerTest.php
+
+		-
+			message: "#^Property App\\\\Tests\\\\Auth\\\\RegisterUser\\\\Application\\\\RegisterUserHandlerTest\\:\\:\\$testData \\(App\\\\Tests\\\\Auth\\\\RegisterUser\\\\Application\\\\RegisterUserHandlerTestData\\) does not accept object\\|null\\.$#"
+			count: 1
+			path: tests/Auth/RegisterUser/Application/RegisterUserHandlerTest.php
+

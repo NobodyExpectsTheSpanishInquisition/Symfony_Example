@@ -1,9 +1,5 @@
+imports:
+  - { resource: ./../src/Auth/Shared/Infrastructure/Config/services.yaml }
+
 parameters:
 
-services:
-    _defaults:
-        autowire: true
-        autoconfigure: true
-
-    App\:
-        resource: '../src/'

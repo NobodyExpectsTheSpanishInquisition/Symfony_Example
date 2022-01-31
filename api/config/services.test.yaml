@@ -1,0 +1,12 @@
+imports:
+  - { resource: ./../src/Auth/Shared/Infrastructure/Config/services.yaml }
+
+services:
+
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: true
+
+  App\Tests\Auth\:
+    resource: '../tests/Auth/'
