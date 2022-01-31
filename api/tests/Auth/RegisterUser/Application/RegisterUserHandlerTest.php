@@ -6,7 +6,7 @@ use App\Auth\RegisterUser\Application\RegisterUserHandler;
 use App\Auth\Shared\Infrastructure\Doctrine\AuthEntityManager;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
-class RegisterUserHandlerTest extends KernelTestCase
+final class RegisterUserHandlerTest extends KernelTestCase
 {
     private RegisterUserHandler $handler;
     private RegisterUserHandlerTestAssertions $assertions;
